@@ -1,0 +1,20 @@
+{
+    "name": "file-manager",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Oksana-bondareva/file-manager"
+    },
+    "keywords": [
+      "nodejs"
+    ],
+    "author": "Oksana Bondareva",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Oksana-bondareva/file-manager"
+    },
+    "homepage": "https://github.com/Oksana-bondareva/file-manager"
+  }
