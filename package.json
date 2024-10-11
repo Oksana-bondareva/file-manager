@@ -3,18 +3,13 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
+      "start": "node src/index.js"
     },
     "repository": {
       "type": "git",
       "url": "https://github.com/Oksana-bondareva/file-manager"
     },
-    "keywords": [
-      "nodejs"
-    ],
     "author": "Oksana Bondareva",
     "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/Oksana-bondareva/file-manager"
-    },
     "homepage": "https://github.com/Oksana-bondareva/file-manager"
   }
