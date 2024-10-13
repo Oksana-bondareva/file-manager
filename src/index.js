@@ -3,6 +3,7 @@ import { stdin, stdout } from 'process';
 import { homedir } from 'os';
 import up from './Navigation/up.js';
 import cd from './Navigation/cd.js';
+import ls from './Navigation/ls.js';
 import { printCurrentDir } from './Utils/utils.js';
 
 const rl = readline.createInterface({
@@ -28,6 +29,9 @@ rl.on('line', async (input) => {
       case 'cd':
           currentDir = await cd(args, currentDir, rl);
           printCurrentDir(rl, currentDir);
+          break;
+      case 'ls':
+          currentDir = await ls(currentDir, rl);
           break;
       case '.exit':
           rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
