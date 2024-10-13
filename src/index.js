@@ -5,6 +5,7 @@ import up from './Navigation/up.js';
 import cd from './Navigation/cd.js';
 import ls from './Navigation/ls.js';
 import cat from './FilesOperations/cat.js';
+import add from './FilesOperations/add.js';
 import { printCurrentDir } from './Utils/utils.js';
 
 const rl = readline.createInterface({
@@ -22,25 +23,28 @@ printCurrentDir(rl, currentDir);
 rl.on('line', async (input) => {
   const [command, ...args] = input.trim().split(' ');
 
-  switch (command) {
-      case 'up':
-          currentDir = up(currentDir);
-          printCurrentDir(rl, currentDir);
-          break;
-      case 'cd':
-          currentDir = await cd(args, currentDir, rl);
-          printCurrentDir(rl, currentDir);
-          break;
-      case 'ls':
-          currentDir = await ls(currentDir, rl);
-          break;
-      case 'cat':
-          cat(args, currentDir, rl);
-          break;
-      case '.exit':
-          rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
-          process.exit(0);
-  }
-}).on('close', () => {
-  rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
+    switch (command) {
+        case 'up':
+            currentDir = up(currentDir);
+            printCurrentDir(rl, currentDir);
+            break;
+        case 'cd':
+            currentDir = await cd(args, currentDir, rl);
+            printCurrentDir(rl, currentDir);
+            break;
+        case 'ls':
+            currentDir = await ls(currentDir, rl);
+            break;
+        case 'cat':
+            cat(args, currentDir, rl);
+            break;
+        case 'add':
+            add(args, currentDir, rl);
+            break;
+        case '.exit':
+            rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
+            process.exit(0);
+        }
+    }).on('close', () => {
+        rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
 });
