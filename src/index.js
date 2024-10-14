@@ -9,6 +9,7 @@ import add from './FilesOperations/add.js';
 import rn from './FilesOperations/rename.js';
 import cp from './FilesOperations/copy.js';
 import mv from './FilesOperations/move.js';
+import rm from './FilesOperations/delete.js';
 import { printCurrentDir } from './Utils/utils.js';
 
 const rl = readline.createInterface({
@@ -52,6 +53,9 @@ rl.on('line', async (input) => {
             break;
         case 'mv':
             mv(args, currentDir, rl);
+            break;
+        case 'rm':
+            rm(args, currentDir, rl);
             break;
         case '.exit':
             rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
