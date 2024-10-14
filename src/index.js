@@ -13,6 +13,7 @@ import rm from './FilesOperations/delete.js';
 import osInfo from './Operating/osInfo.js';
 import hash from './Hash/hash.js';
 import compress from './CompressOperations/compress.js';
+import decompress from './CompressOperations/decompress.js';
 import { printCurrentDir } from './Utils/utils.js';
 
 const rl = readline.createInterface({
@@ -69,10 +70,16 @@ rl.on('line', async (input) => {
         case 'compress':
             compress(args, currentDir, rl);
             break;
+        case 'decompress':
+            decompress(args, currentDir, rl);
+            break;
         case '.exit':
             rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
             process.exit(0);
         }
-    }).on('close', () => {
-        rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
+
+    rl.on('SIGINT', () => {
+        rl.write(`\nThank you for using File Manager, ${username}, goodbye!\n`);
+        process.exit(0);
+    });
 });

@@ -22,6 +22,7 @@ const compress = async (args, currentDir, rl) => {
         const brotli = createBrotliCompress();
 
         await pipeline(readStream, brotli, writeStream);
+        await fs.promises.unlink(filePath);
     } catch (error) {
         rl.write(`Operation failed: ${error.message}\n`);
     }
