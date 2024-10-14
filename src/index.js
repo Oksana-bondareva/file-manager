@@ -11,6 +11,7 @@ import cp from './FilesOperations/copy.js';
 import mv from './FilesOperations/move.js';
 import rm from './FilesOperations/delete.js';
 import osInfo from './Operating/osInfo.js';
+import hash from './Hash/hash.js';
 import { printCurrentDir } from './Utils/utils.js';
 
 const rl = readline.createInterface({
@@ -60,6 +61,9 @@ rl.on('line', async (input) => {
             break;
         case 'os':
             osInfo(args, rl);
+            break;
+        case 'hash':
+            hash(args, currentDir, rl);
             break;
         case '.exit':
             rl.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
