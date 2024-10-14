@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import { join } from 'path';
 
 export default async function rn(args, currentDir, rl) {
-    if (args.length < 2) {
+    if (args.length !==2) {
         rl.write('Error: you must write <current_filename> <new_filename>\n');
         return;
     }
